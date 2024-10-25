@@ -2,6 +2,8 @@
 
 phony := build 
 phony += clean
+phony += backend
+phony += frontend
 
 DOCKER_IMAGE="cubefs-dashboard"
 
