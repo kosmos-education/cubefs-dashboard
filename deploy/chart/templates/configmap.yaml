@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cubefs-dashboard-config
+data:
+  config.yaml: |
+    server:
+      port: 6007
+      mode: dev
+      static_resource:
+        enable: true
+        relative_path: /portal
+        root_path: ./dist
+      prefix:
+        api: /api/cubefs

@@ -1,0 +1,27 @@
+image:
+  tag: latest
+  registry: harbor.kosmosk8s.kosmos.fr
+  repository: it/cubefs-dashboard
+  pullSecret: harbor
+service:
+  port: 6007
+spec:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 1
+      memory: 2Gi
+mariadb:
+  image: mariadb:11.3.2
+  auth:
+    username: cfs
+    database: cfs
+    password: password
+ingress:
+  enable: true
+  ingressClassName: haproxy
+  hostname: cubefs-dashboard.local
+  tls: false
+  secretName: wildcard-tls

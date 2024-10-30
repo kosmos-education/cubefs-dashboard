@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: cubefs-dashboard
+  name: cubefs-dashboard
+spec:
+  ports:
+  - port: {{.Values.service.port}}
+    protocol: TCP
+    targetPort: {{.Values.service.port}}
+  selector:
+    app: cubefs-dashboard
+  type: ClusterIP

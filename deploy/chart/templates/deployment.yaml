@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cubefs-dashboard
+  name: cubefs-dashboard
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: cubefs-dashboard
+  template:
+    metadata:
+      labels:
+        app: cubefs-dashboard
+    spec:
+      imagePullSecrets:
+      - name: {{.Values.image.pullSecret}}
+      containers:
+      - image: "{{.Values.image.registry}}/{{.Values.image.repository}}:{{.Values.image.tag}}"
+        imagePullPolicy: Always
+        name: dashboard
+        resources: {{- toYaml .Values.resources | indent 10 }}
+        volumeMounts:
+        - mountPath: /src/config
+          name: dashboard-config
+      - env:
+        - name: MARIADB_PASSWORD
+          value: {{ .Values.mariadb.auth.password}}
+        - name: MARIADB_DATABASE
+          value: {{ .Values.mariadb.auth.database}}
+        - name: MARIADB_USER
+          value: {{ .Values.mariadb.auth.username}}
+        - name: MARIADB_RANDOM_ROOT_PASSWORD
+          value: "True"
+        image: {{.Values.mariadb.image}}
+        imagePullPolicy: IfNotPresent
+        name: mariadb
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: db
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      volumes:
+      - name: db
+        persistentVolumeClaim:
+          claimName: cubefs-dashboard
+      - name: dashboard-config
+        projected:
+          sources:
+            - secret:
+                name: cubefs-dashboard-mysql
+            - configMap:
+                name: cubefs-dashboard-config
