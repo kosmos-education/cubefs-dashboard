@@ -32,7 +32,7 @@ import (
 type cfsRouter struct{}
 
 func (c *cfsRouter) Register(engine *gin.Engine) {
-	group := engine.Group(config.Conf.Prefix.Api + "/console/cfs/:cluster")
+	group := engine.Group(config.Conf.Server.Prefix.Api + "/console/cfs/:cluster")
 
 	users := group.Group("/users")
 	{

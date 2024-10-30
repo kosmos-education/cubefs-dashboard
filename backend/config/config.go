@@ -16,35 +16,45 @@ package config
 
 import (
 	"github.com/spf13/viper"
-
-	"github.com/cubefs/cubefs-dashboard/backend/helper/crypt"
 )
 
 var Conf *Config
 
 func Init(configPath string) (err error) {
-	viper.SetConfigFile(configPath)
+	serverConfig := viper.New()
+	mysqlConfig := viper.New()
+	serverConfig.SetConfigFile(configPath + "config.yaml")
+	mysqlConfig.SetConfigFile(configPath + "mysql.yaml")
 
-	err = viper.ReadInConfig()
+	err = serverConfig.ReadInConfig()
 	if err != nil {
 		return err
 	}
 
-	err = viper.Unmarshal(&Conf)
+	err = mysqlConfig.ReadInConfig()
 	if err != nil {
 		return err
 	}
-	err = Conf.AesDecode()
+
+	err = serverConfig.Unmarshal(&Conf)
+	if err != nil {
+		return err
+	}
+
+	err = mysqlConfig.Unmarshal(&Conf)
+	if err != nil {
+		return err
+	}
 	return
 }
 
 type Config struct {
 	Server *ServerConfig `mapstructure:"server"`
-	Prefix *PrefixConfig `mapstructure:"prefix"`
 	Mysql  *MysqlConfig  `mapstructure:"mysql"`
 }
 
 type ServerConfig struct {
+	Prefix         *PrefixConfig  `mapstructure:"prefix"`
 	Port           int            `mapstructure:"port"`
 	Mode           string         `mapstructure:"mode"`
 	ClientIDKey    string         `mapstructure:"clientIDKey"`
@@ -71,13 +81,4 @@ type MysqlConfig struct {
 	Database    string `mapstructure:"database"`
 	MaxIdleConn int    `mapstructure:"maxIdleConn"`
 	MaxOpenConn int    `mapstructure:"maxOpenConn"`
-}
-
-func (c *Config) AesDecode() error {
-	mysqlPass, err := crypt.Decrypt(c.Mysql.Password)
-	if err != nil {
-		return err
-	}
-	c.Mysql.Password = mysqlPass
-	return nil
 }

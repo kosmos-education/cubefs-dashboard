@@ -79,7 +79,7 @@ func (o *OpType) Find(record *bool) ([]OpType, error) {
 	return optypes, err
 }
 
-func (o *OpType) FindByUniqKey(uri, method string) (*OpType, error)  {
+func (o *OpType) FindByUniqKey(uri, method string) (*OpType, error) {
 	if uri == "" || method == "" {
 		return nil, errors.New("uri and method are required")
 	}
@@ -95,7 +95,7 @@ func InitOpTypeData(db *gorm.DB) error {
 }
 
 func getDefaultOpTypes() []OpType {
-	prefix := config.Conf.Prefix.Api + "/console"
+	prefix := config.Conf.Server.Prefix.Api + "/console"
 	optypes := []OpType{
 		// clusters
 		{Method: "POST", URI: prefix + "/clusters/create", NameEN: "create cluster", NameCN: "创建集群", Record: true},

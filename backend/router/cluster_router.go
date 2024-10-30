@@ -24,7 +24,7 @@ import (
 type clusterRouter struct{}
 
 func (c *clusterRouter) Register(engine *gin.Engine) {
-	group := engine.Group(config.Conf.Prefix.Api + "/console")
+	group := engine.Group(config.Conf.Server.Prefix.Api + "/console")
 
 	clusters := group.Group("/clusters")
 	{

@@ -29,7 +29,7 @@ import (
 type blobRouter struct{}
 
 func (b *blobRouter) Register(engine *gin.Engine) {
-	group := engine.Group(config.Conf.Prefix.Api + "/console/blobstore")
+	group := engine.Group(config.Conf.Server.Prefix.Api + "/console/blobstore")
 
 	region := group.Group("/:cluster")
 	{
