@@ -5,12 +5,15 @@ phony += clean
 phony += backend
 phony += frontend
 
-DOCKER_IMAGE="cubefs-dashboard"
+DOCKER_IMAGE="harbor.kosmosk8s.kosmos.fr/it/cubefs-dashboard"
 
 build: frontend backend
 
 docker-build:
 	docker build . -t "${DOCKER_IMAGE}"
+
+docker-push:
+	docker push "${DOCKER_IMAGE}"
 
 frontend:
 	sh build.sh --frontend
