@@ -3,7 +3,7 @@ FROM golang:1.21 AS backend-builder
 COPY backend/ /build/backend
 COPY build.sh /build/
 WORKDIR /build
-RUN sh -x ./build.sh --backend
+RUN sh -x ./build.sh --backend && ls /build/bin/ && sleep 10
 
 # Use distroless as minimal base image to package the manager binary
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
@@ -24,4 +24,4 @@ COPY --from=backend-builder /build/bin/cfs-gui .
 COPY --from=backend-builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=frontend-builder /build/frontend/dist ./dist/
 EXPOSE 6007
-ENTRYPOINT ["/src/cfs-gui","-c","/src/config/config.yaml"]
+ENTRYPOINT ["/src/cfs-gui","-c","/src/config/"]

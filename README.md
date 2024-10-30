@@ -44,6 +44,35 @@ total 26256
 -rw-r--r-- 1 root root     1009 Jul 27 17:26 config.yml
 drwxr-xr-x 6 root root     4096 Jul 27 17:27 dist
 ```
+
+# Configuration
+## /src/config/config.yaml
+
+```
+server:
+  port: 6007
+  mode: dev
+  static_resource:
+    enable: true
+    relative_path: /portal
+    root_path: ./dist
+  prefix:
+    api: /api/cubefs
+```
+## /src/config/database.yaml
+```
+mysql:
+  host: 
+  port: 
+  slaveHost: 
+  slavePort: 
+  database:
+  user:
+  password:
+  maxIdleConn: 20
+  MaxOpenConn: 300
+```
+
 # Preview
 ## Cluster overview
 <img src="https://github.com/cubefs/cubefs-dashboard/blob/main/pictures/cluster_overview.png" align=center/>

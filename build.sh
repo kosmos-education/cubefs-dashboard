@@ -25,12 +25,11 @@ then
       -ldflags "${LDFlags}" \
       -o $TargetFile \
       *.go
-  if [[ $? -ne 0 ]];then
+  if [[ $? -ne 0 ]];
+  then
     echo "go build error"
     exit 13
   fi
-  cd -
-  cp -rf ./$BACK_PATH/conf/config.yml $TargetDic/config.yml
 fi
 
 if [ "${1}" = "--frontend" ];
