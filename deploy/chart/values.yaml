@@ -1,7 +1,7 @@
 image:
   tag: latest
-  registry: harbor.kosmosk8s.kosmos.fr
-  repository: it/cubefs-dashboard
+  registry: docker.io
+  repository: cubefs/dashboard
   pullSecret: harbor
 service:
   port: 6007
