@@ -5,7 +5,7 @@ phony += clean
 phony += backend
 phony += frontend
 
-DOCKER_IMAGE="harbor.kosmosk8s.kosmos.fr/it/cubefs-dashboard"
+DOCKER_IMAGE="cubefs-dashboard"
 
 build: frontend backend
 
