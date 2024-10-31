@@ -24,7 +24,7 @@ import (
 type opLogRouter struct{}
 
 func (o *opLogRouter) Register(engine *gin.Engine) {
-	group := engine.Group(config.Conf.Server.Prefix.Api + "/console")
+	group := engine.Group(config.Conf.Prefix.Api + "/console")
 
 	optypes := group.Group("/optypes")
 	{

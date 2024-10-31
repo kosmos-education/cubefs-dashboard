@@ -56,10 +56,10 @@ server:
     enable: true
     relative_path: /portal
     root_path: ./dist
-  prefix:
-    api: /api/cubefs
+prefix:
+   api: /api/cubefs
 ```
-## /src/config/database.yaml
+## /src/config/mysql.yaml
 ```
 mysql:
   host: 

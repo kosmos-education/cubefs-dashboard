@@ -50,11 +50,11 @@ func Init(configPath string) (err error) {
 
 type Config struct {
 	Server *ServerConfig `mapstructure:"server"`
+	Prefix *PrefixConfig `mapstructure:"prefix"`
 	Mysql  *MysqlConfig  `mapstructure:"mysql"`
 }
 
 type ServerConfig struct {
-	Prefix         *PrefixConfig  `mapstructure:"prefix"`
 	Port           int            `mapstructure:"port"`
 	Mode           string         `mapstructure:"mode"`
 	ClientIDKey    string         `mapstructure:"clientIDKey"`

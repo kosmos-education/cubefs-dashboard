@@ -24,7 +24,7 @@ import (
 type authRouter struct{}
 
 func (r *authRouter) Register(engine *gin.Engine) {
-	group := engine.Group(config.Conf.Server.Prefix.Api + "/console/auth")
+	group := engine.Group(config.Conf.Prefix.Api + "/console/auth")
 
 	group.POST("/login", auth.LoginHandler)
 	group.POST("/logout", auth.LogoutHandler)

@@ -95,7 +95,7 @@ func InitOpTypeData(db *gorm.DB) error {
 }
 
 func getDefaultOpTypes() []OpType {
-	prefix := config.Conf.Server.Prefix.Api + "/console"
+	prefix := config.Conf.Prefix.Api + "/console"
 	optypes := []OpType{
 		// clusters
 		{Method: "POST", URI: prefix + "/clusters/create", NameEN: "create cluster", NameCN: "创建集群", Record: true},
