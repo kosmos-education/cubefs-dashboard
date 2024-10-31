@@ -2,7 +2,7 @@ image:
   tag: latest
   registry: docker.io
   repository: cubefs/dashboard
-  pullSecret: harbor
+  pullSecret:
 service:
   port: 6007
 spec:
