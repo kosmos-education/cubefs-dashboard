@@ -11,5 +11,5 @@ data:
         enable: true
         relative_path: /portal
         root_path: ./dist
-      prefix:
-        api: /api/cubefs
+    prefix:
+      api: /api/cubefs
