@@ -32,8 +32,8 @@
         </div>
       </el-alert>
       <el-tabs v-model="activeName">
+        <el-tab-pane :label="$t('filemanage.filemg')" name="file"></el-tab-pane>
         <el-tab-pane :label="$t('filemanage.corscfg')" name="cors"></el-tab-pane>
-        <el-tab-pane :label="$t('filemanage.filemg')" name="file" :disabled="disabledFile"></el-tab-pane>
       </el-tabs>
       <file v-if="activeName === 'file'"></file>
       <Cors v-if="activeName === 'cors'" @get-cors="getCors"></Cors>
