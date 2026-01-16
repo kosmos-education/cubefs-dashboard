@@ -21,13 +21,13 @@ import locale from 'element-ui/lib/locale'
 import language from './lang'
 import VueI18n from 'vue-i18n'
 
-Vue.prototype.isRtl = localStorage.getItem('language') === 'zh'
+Vue.prototype.isRtl = localStorage.getItem('language') === 'en'
 
 Vue.use(VueI18n)
 
 export const i18n = new VueI18n({
-  locale: localStorage.getItem('language') || 'zh',
-  fallbackLocale: localStorage.getItem('language') || 'zh',
+  locale: localStorage.getItem('language') || 'en',
+  fallbackLocale: localStorage.getItem('language') || 'en',
   messages: language,
   formatFallbackMessages: true,
   silentTranslationWarn: true, // 浏览器控制台不显示warning

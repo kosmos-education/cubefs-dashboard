@@ -9,7 +9,7 @@ module.exports = defineConfig({
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = 'CubeFS控制台'
+        args[0].title = 'CubeFS Dashboard'
         return args
       })
 
