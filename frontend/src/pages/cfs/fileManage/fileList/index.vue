@@ -55,7 +55,7 @@ export default {
     return {
       id: '',
       zone: '',
-      activeName: 'cors',
+      activeName: 'file',
       volName: '',
       corsRules: [],
       disabledFile: true,
