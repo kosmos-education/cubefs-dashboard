@@ -20,6 +20,7 @@
           <el-select v-model="language" @change="changeLang">
             <el-option value="zh" label="简体中文"></el-option>
             <el-option value="en" label="English"></el-option>
+            <el-option value="fr" label="Français"></el-option>
           </el-select>
     </div>
     <Logo class="logo" />
