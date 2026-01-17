@@ -74,10 +74,7 @@ export function ajaxMixin (Vue, { router }) {
       try {
         if (_loading) {
           loadInstance = Loading.service({
-            lock: true,
-            text: '正在加载...',
-            spinner: 'el-icon-lock',
-            background: 'rgba(0, 0, 0, 0.3)',
+            lock: false,
           })
         }
         const res = await axios(config)
