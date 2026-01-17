@@ -219,7 +219,7 @@ export default {
   color: #08e4e4d7;
 }
 .fontType{
-font-family: 'OPPOSans B';
+font-family: 'Lato,arial,helvetica,sans-serif';
 font-style: normal;
 font-weight: 300;
 font-size: 22px;
@@ -231,7 +231,7 @@ color: #000000;
   margin: 10px;
 }
 .fontTypeSpan {
-font-family: 'OPPOSans M';
+font-family: 'Lato,arial,helvetica,sans-serif';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;

@@ -131,7 +131,7 @@ export default {
 <style lang='scss' scoped>
 
 .fontTypeSpan {
-font-family: 'OPPOSans M';
+font-family: 'Lato,arial,helvetica,sans-serif';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;

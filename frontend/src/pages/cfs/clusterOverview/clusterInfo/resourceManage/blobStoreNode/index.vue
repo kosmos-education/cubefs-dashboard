@@ -574,7 +574,7 @@ export default {
   font-size: 12px !important;
 }
 .fontType{
-font-family: 'OPPOSans B';
+font-family: 'Lato,arial,helvetica,sans-serif';
 font-style: normal;
 font-weight: 300;
 font-size: 22px;
@@ -583,7 +583,7 @@ line-height: 24px;
 color: #000000;
 }
 .fontTypeSpan {
-font-family: 'OPPOSans M';
+font-family: 'Lato,arial,helvetica,sans-serif';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;

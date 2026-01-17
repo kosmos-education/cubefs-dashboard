@@ -578,7 +578,7 @@ p {
 }
 
 .fontType {
-  font-family: 'OPPOSans B';
+  font-family: 'Lato,arial,helvetica,sans-serif';
   font-style: normal;
   font-weight: 300;
   font-size: 22px;
@@ -588,7 +588,7 @@ p {
 }
 
 .fontTypeSpan {
-  font-family: 'OPPOSans M';
+  font-family: 'Lato,arial,helvetica,sans-serif';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

@@ -46,7 +46,7 @@
         class="button"
         @click="toggle(i)"
       >
-        {{ $t(menu.title) }} 
+        {{ $t(menu.title) }}
         <i class="expand-icon el-icon-arrow-right"></i>
       </span>
       <el-collapse-transition>
@@ -133,7 +133,7 @@ export default {
 .link {
   font-size: 14px;
   line-height: 48px;
-  font-family: 'OPlusSans 3.0';
+  font-family: 'Lato,arial,helvetica,sans-serif';
   color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   background-color: #fff;
