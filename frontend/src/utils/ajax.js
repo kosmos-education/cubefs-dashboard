@@ -72,13 +72,7 @@ export function ajaxMixin (Vue, { router }) {
         _beforeSendHook(config.params)
       }
       try {
-        if (_loading) {
-          loadInstance = Loading.service({
-            lock: false,
-          })
-        }
         const res = await axios(config)
-        loadInstance.close()
         const { status } = res
         if (status !== 200) {
           throw res.data
