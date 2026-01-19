@@ -33,9 +33,10 @@
         <el-select v-model="language" @change="changeLang">
           <el-option value="zh" label="简体中文"></el-option>
           <el-option value="en" label="English"></el-option>
+          <el-option value="fr" label="Français"></el-option>
         </el-select>
       </div>
-      <div class="role">{{ $t('layout.currentrole')}}: 
+      <div class="role">{{ $t('layout.currentrole')}}:
         <el-tooltip effect="dark" :content="roleList.join()" placement="bottom">
           <span>{{ roleList[0] }}</span>
         </el-tooltip>
